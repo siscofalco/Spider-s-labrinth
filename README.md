@@ -51,3 +51,9 @@ Trophy(){
   <li>Game screen</li>
   <li>Game over screen</li>
 </ol>
+### Links
+##### Trello 
+https://trello.com/b/EOtOy4nC/spiders-labrinth
+
+##### Presentation slides
+
