@@ -22,7 +22,8 @@ Game(){
   this.score,
   this.level,
   this.character,
-  this.enemies
+  this.enemies,
+  this.trophy
 }
 
 Character(){
@@ -33,7 +34,7 @@ Character(){
 
 Enemies(){
   this.position,
-  this.direction,
+  this.direction
 }
 ```
 
