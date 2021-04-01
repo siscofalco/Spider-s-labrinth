@@ -19,6 +19,7 @@ The original idea consists of three different levels, same map but more difficul
 Game(){
   this.map,
   this.time,
+  this.intervalId,
   this.score,
   this.level,
   this.character,
@@ -35,6 +36,11 @@ Character(){
 Enemies(){
   this.position,
   this.direction
+}
+
+Trophy(){
+  this.position,
+  this.visible
 }
 ```
 
