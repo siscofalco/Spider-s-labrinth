@@ -1,4 +1,4 @@
-# Spider-s-labrinth
+# Spider's Labrinth 🕷 
 
 This project is a 80's inspired arcade game where your character has to walk through a labrinth in order to get a special trophy, while surviving the deadly spiders.
 
@@ -43,4 +43,11 @@ Trophy(){
   this.visible
 }
 ```
+### States y States Transitions
 
+<ol>
+  <li>☀️ Welcome screen</li>
+  <li>Character selector screen</li>
+  <li>Game screen</li>
+  <li>Game over screen</li>
+</ol>
