@@ -1,6 +1,6 @@
-# Spider's Labrinth 🕷 
+# Spider's Labyrinth 🕷 
 
-This project is a 80's inspired arcade game where your character has to walk through a labrinth in order to get a special trophy, while surviving the deadly spiders.
+This project is a 80's inspired arcade game where your character has to walk through a labyrinth in order to get a special trophy, while surviving the deadly spiders.
 
 The original idea consists of three different levels, same map but more difficulty regarding the enemies (spiders).
 
@@ -9,7 +9,7 @@ The original idea consists of three different levels, same map but more difficul
 <ol>
 <li>Welcome screen</li>
 <li>Character selector: selection from at least two characters.</li>
-<li>Labrinth map: map where the game takes place, main character has to be controlled and moved by the user.</li>
+<li>Labyrinth map: map where the game takes place, main character has to be controlled and moved by the user.</li>
 <li>Success/failure screen: score indicator and the option to restart the game.</li>
 </ol>
 
@@ -46,7 +46,7 @@ Trophy(){
 ### States y States Transitions
 
 <ol>
-  <li>☀️ Welcome screen</li>
+  <li>Welcome screen</li>
   <li>Character selector screen</li>
   <li>Game screen</li>
   <li>Game over screen</li>
