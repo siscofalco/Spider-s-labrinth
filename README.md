@@ -56,7 +56,7 @@ Trophy(){
 
 ##### Trello 
 
-https://trello.com/b/EOtOy4nC/spiders-labrinth
+https://trello.com/b/EOtOy4nC/spiders-labyrinth
 
 ##### Presentation slides
 
