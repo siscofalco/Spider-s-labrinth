@@ -60,3 +60,4 @@ https://trello.com/b/EOtOy4nC/spiders-labrinth
 
 ##### Presentation slides
 
+https://docs.google.com/presentation/d/17R6wrI6h5AiKzMhwQd5JmRrNqB94cvRvjMfs4SFWdxY/edit#slide=id.p
