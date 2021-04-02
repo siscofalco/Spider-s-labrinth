@@ -43,7 +43,7 @@ Trophy(){
   this.visible
 }
 ```
-### States y States Transitions
+### States + States Transitions
 
 <ol>
   <li>Welcome screen</li>
