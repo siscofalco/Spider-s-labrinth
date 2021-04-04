@@ -3,21 +3,14 @@ let welcomeScreen;
 let gameScreen;
 let gameOverScreen;
 
-// Creates DOM elements from a string representation
-// buildDom
 function buildDom(htmlString) {
-    //tempDiv lo creamos para tener un elemento HTML (div) sobre el que transformar
-    //nuestro string (htmlString) a formato HTML usando innerHTML
-    //los strings que contengan el HTML deben tener UN SOLO ELEMENTO PADRE
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = htmlString;
-    //console.log(“tempDiv.children”, tempDiv.children)
     return tempDiv.children[0];
 }
 
-// -- splash screen
+
 function createWelcomeScreen() {
-    //para un correcto tabulado del string, tabular de la línea 2 hasta el final
     welcomeScreen = buildDom(`
         <main>
             <h1>Spider's Labyrinth</h1>
@@ -25,10 +18,10 @@ function createWelcomeScreen() {
             <button id="appearance-blue">Blue</button>
         </main>
     `);
-    //Una vez creado el elemento HTML con la función buildDom, cargamos ese HTML en la página principal
+
     document.body.appendChild(welcomeScreen);
 
-    //seleccionamos el botón que hemos creado y le creamos un eventListener para después crear el jugo
+ 
     const startButtons = welcomeScreen.querySelectorAll("button");
 
     startButtons.forEach((button)=> {
@@ -101,7 +94,7 @@ function startGame(event) {
     createGameScreen();
 
     game = new Game(gameScreen);
-    game.gameScreen = gameScreen;
+    // game.gameScreen = gameScreen;
     const appearanceId = event.target.id;
     game.start(appearanceId);
 }
