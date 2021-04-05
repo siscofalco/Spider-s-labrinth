@@ -30,14 +30,10 @@ function createWelcomeScreen() {
 }
  
 function removeWelcomeScreen() {
-  // remove() is the DOM method that removes the Node from the page
   welcomeScreen.remove();
-  //console.log(welcomeScreen); //The value remains the same, but the code has been removed from the DOM.
 }
 
-// -- game screen
 function createGameScreen() {
-    //para un correcto tabulado del string, tabular de la línea 2 hasta el final
     gameScreen = buildDom(`
         <main class="game container">
             <header>
@@ -60,14 +56,13 @@ function createGameScreen() {
     `);
 
     document.body.appendChild(gameScreen);
-    return gameScreen; //this we will explain later
+    return gameScreen; 
 }
 
 function removeGameScreen() {
     gameScreen.remove();
 }
 
-// -- game over screen
 function createGameOverScreen(score) {
     gameOverScreen = buildDom(`
         <main>
@@ -85,7 +80,6 @@ function removeGameOverScreen() {
     gameOverScreen.remove()
 }
 
-// -- Setting the game state - start or game over
 function startGame(event) {
     removeWelcomeScreen();
     if(gameOverScreen){
@@ -94,7 +88,6 @@ function startGame(event) {
     createGameScreen();
 
     game = new Game(gameScreen);
-    // game.gameScreen = gameScreen;
     const appearanceId = event.target.id;
     game.start(appearanceId);
 }

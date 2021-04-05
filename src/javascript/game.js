@@ -2,10 +2,11 @@ class Game {
     constructor(gameScreen) {
         this.gameScreen = gameScreen,
         this.mapArr = mapArr,
-        this.character = null;
-        this.enemies = null;
-        this.canvas = null;
-        this.ctx = null;
+        this.character = null,
+        this.enemies = null,
+        this.canvas = null,
+        this.ctx = null,
+        this.intervalTime = null
     }
 
     start(){
@@ -13,19 +14,18 @@ class Game {
         this.ctx = this.canvas.getContext('2d');
         this.canvas.width = "1000";
         this.canvas.height = "1000";
-        
-        this.printLabyrinth(this.ctx);
-        this.printCharacter();
-        this.printEnemies();
+        this.character = new Character(this.canvas);
+        this.enemies = new Enemy(this.canvas);
+        this.loop();
+        this.activatePauseButton();
     }
 
     printCharacter(){
-        this.character = new Character(this.canvas);
+        this.character.CharacterPosition();
         this.character.characterDraw();
     }
 
     printEnemies(){
-        this.enemies = new Enemy(this.canvas);
         this.enemies.enemyDraw();
     }
 
@@ -41,6 +41,23 @@ class Game {
             });
         });
     }
+    
+    loop(){
+        this.intervalTime = setInterval(() => {
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            this.printLabyrinth(this.ctx);
+            this.printCharacter();
+            this.printEnemies();
+        }, 1000);
+    }
+
+    activatePauseButton(){
+        const pauseButton = document.querySelector("#pause-button");
+        function clearInterval(){
+            clearInterval(this.intervalTime);
+        }
+        pauseButton.addEventListener("click", clearInterval());
+    }
 }
 
 const mapArr = [
@@ -55,3 +72,4 @@ const mapArr = [
     ["B","B","P","B","P","P","P","B","P","B",],
     ["B","B","B","B","B","B","B","B","B","B",],
 ];
+
