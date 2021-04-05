@@ -22,29 +22,29 @@ class Game {
     start(){
     }
 
-    printCharacter(){
+    printCharacter() {
     }
 
     printEnemies(){
     }
 
-    printLabyrinth(ctx){
+    printLabyrinth() {
     }
 }
 
-class Character{
-    constructor(canvas){
+class Character {
+    constructor() {
     }
 
-    characterDraw(){
+    characterDraw() {
     }
 }
 
 class Enemy{
-    constructor(canvas){
+    constructor() {
     }
 
-    enemyDraw(){
+    enemyDraw() {
     }
 }
 ```
