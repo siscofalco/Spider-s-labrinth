@@ -47,6 +47,7 @@ function createGameScreen() {
                 </div>
                 <div> 
                     <button id="pause-button">Pause</button>
+                    <button id="play-button">Play</button>
                 </div>
             </header>
             <div class="canvas-container">

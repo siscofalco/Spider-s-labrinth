@@ -6,18 +6,22 @@ class Game {
         this.enemies = null,
         this.canvas = null,
         this.ctx = null,
-        this.intervalTime = null
+        this.runningGame = true,
+        this.score = this.gameScreen.querySelector(".score .value"),
+        this.scoreValue = 0,
+        this.playButton = document.querySelector("#play-button"),
+        this.pauseButton = document.querySelector("#pause-button")
     }
 
     start(){
         this.canvas = this.gameScreen.querySelector(".canvas-container canvas");
         this.ctx = this.canvas.getContext('2d');
-        this.canvas.width = "1000";
-        this.canvas.height = "1000";
+        this.canvas.width = "5000";
+        this.canvas.height = "5000";
         this.character = new Character(this.canvas);
         this.enemies = new Enemy(this.canvas);
-        this.loop();
         this.activatePauseButton();
+        this.startLoop();
     }
 
     printCharacter(){
@@ -37,26 +41,46 @@ class Game {
                 } else {
                     ctx.fillStyle = "white";
                 }
-                ctx.fillRect(indexX * 20, indexY * 20, 20, 20);
+                ctx.fillRect(indexX * 50, indexY * 50, 50, 50);
             });
         });
     }
     
-    loop(){
-        this.intervalTime = setInterval(() => {
+    startLoop(){
+        const loop = () => {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.printLabyrinth(this.ctx);
             this.printCharacter();
             this.printEnemies();
-        }, 1000);
+            this.printScore();
+            if(this.runningGame !== false){
+                const slowDownTime = () => {
+                    window.requestAnimationFrame(loop);
+                };
+                setTimeout(slowDownTime, 500);
+            }
+        };
+        window.requestAnimationFrame(loop);
+    }
+    
+    activatePauseButton(){
+        const reactivateGame = () => {
+            this.runningGame = true;
+            this.playButton.classList.add("hidden");
+            this.startLoop();
+        }
+        const pauseGame = () => {
+            this.runningGame = false;
+            this.playButton.classList.remove("hidden");
+            this.playButton.addEventListener("click", reactivateGame);
+        }
+        this.pauseButton.addEventListener("click", pauseGame);
+        this.playButton.classList.add("hidden");
     }
 
-    activatePauseButton(){
-        const pauseButton = document.querySelector("#pause-button");
-        function clearInterval(){
-            clearInterval(this.intervalTime);
-        }
-        pauseButton.addEventListener("click", clearInterval());
+    printScore(){
+        this.scoreValue += 10;
+        this.score.innerHTML = (`${this.scoreValue}`); 
     }
 }
 
@@ -72,4 +96,3 @@ const mapArr = [
     ["B","B","P","B","P","P","P","B","P","B",],
     ["B","B","B","B","B","B","B","B","B","B",],
 ];
-
