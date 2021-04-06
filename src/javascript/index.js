@@ -65,13 +65,22 @@ function removeGameScreen() {
 }
 
 function createGameOverScreen(score) {
-    gameOverScreen = buildDom(`
-        <main>
-            <h1>GAME OVER</h1>
-            <p>Your score: <span>${score}</span> </p>
-            <button>Restart</button>
-        </main>
-    `);
+    if (score === 0) {
+        gameOverScreen = buildDom(`
+            <main>
+                <h1>GAME OVER :(</h1>
+                <button>Restart</button>
+            </main>
+        `);
+    } else {
+        gameOverScreen = buildDom(`
+            <main>
+                <h1>YOU WIN!</h1>
+                <p>Your score: <span>${score}</span></p>
+                <button>Restart</button>
+            </main>
+        `);
+    }
     const button = gameOverScreen.querySelector("button");
     button.addEventListener("click", startGame)
 
