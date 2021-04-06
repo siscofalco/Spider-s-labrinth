@@ -8,46 +8,50 @@ The original idea consists of three different levels, same map but more difficul
 
 <ol>
 <li>Welcome screen</li>
-<li>Character selector: selection from at least two characters.</li>
-<li>Labyrinth map: map where the game takes place, main character has to be controlled and moved by the user.</li>
-<li>Success/failure screen: score indicator and the option to restart the game.</li>
+<li>Labyrinth: map where the game takes place, main character has to be controlled and moved by the user.</li>
+<li>Success/failure screen: option to restart the game.</li>
 </ol>
 
 <h3>Data Structures</h3>
 
 ```
-Game(){
-  this.map,
-  this.time,
-  this.intervalId,
-  this.score,
-  this.level,
-  this.character,
-  this.enemies,
-  this.trophy
+class Game {
+    constructor() {
+    }
+
+    start(){
+    }
+
+    printCharacter() {
+    }
+
+    printEnemies(){
+    }
+
+    printLabyrinth() {
+    }
 }
 
-Character(){
-  this.appearance,
-  this.position,
-  this.direction
+class Character {
+    constructor() {
+    }
+
+    characterDraw() {
+    }
 }
 
-Enemies(){
-  this.position,
-  this.direction
-}
+class Enemy{
+    constructor() {
+    }
 
-Trophy(){
-  this.position,
-  this.visible
+    enemyDraw() {
+    }
 }
 ```
 ### States + States Transitions
 
 <ol>
   <li>Welcome screen</li>
-  <li>Character selector screen</li>
   <li>Game screen</li>
   <li>Game over screen</li>
 </ol>
