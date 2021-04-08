@@ -1,3 +1,5 @@
+const deathSound = new Audio("./src/sounds/death_sound.mp3");
+
 class Game {
     constructor(gameScreen) {
         this.gameScreen = gameScreen,
@@ -117,6 +119,7 @@ class Game {
                         const lastLife = this.gameScreen.querySelector(`#life-image-${this.life}`);
                         lastLife.classList.add("lost-life");
                         this.life -= 1;
+                        deathSound.play();
                         this.character.x = 12;
                         this.character.y = 17;
                         this.character.direction = "DOWN";

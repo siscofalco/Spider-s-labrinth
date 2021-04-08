@@ -1,6 +1,6 @@
 const characterImg = new Image();
 characterImg.src = './src/img/character.png';
-
+const victorySound = new Audio("./src/sounds/victory_sound.mp3");
 
 class Character{
     constructor(canvas){
@@ -17,6 +17,7 @@ class Character{
 
         if(this.x === 12 && this.y === 3){
             endGame(score);
+            victorySound.play();
         }
 
         if(this.direction === "UP"){

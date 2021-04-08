@@ -3,6 +3,8 @@ let welcomeScreen;
 let gameScreen;
 let gameOverScreen;
 
+const backgroundSound = new Audio("./src/sounds/background_music.mp3");
+
 function buildDom(htmlString) {
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = htmlString;
@@ -39,8 +41,9 @@ function removeWelcomeScreen() {
 }
 
 function createGameScreen() {
+    backgroundSound.play();
     gameScreen = buildDom(`
-        <main class="game container">
+        <main class="game container game-screen">
             <header>
                 <div class="life">
                     <span class="label">Life:</span>
@@ -52,7 +55,7 @@ function createGameScreen() {
                     <span class="label">Score:</span>
                     <span class="value"></span>
                 </div>
-                <div> 
+                <div class="button-container"> 
                     <button id="pause-button" class="nes-btn is-primary">Pause</button>
                     <button id="play-button" class="nes-btn is-primary">Play</button>
                 </div>
@@ -68,24 +71,25 @@ function createGameScreen() {
 }
 
 function removeGameScreen() {
+    backgroundSound.pause();
     gameScreen.remove();
 }
 
 function createGameOverScreen(score) {
     if (score === 0) {
         gameOverScreen = buildDom(`
-            <main>
-                <h1>GAME OVER :(</h1>
-                <button>Restart</button>
-            </main>
+            <div class="gameover-screen">
+                <h1>GAME OVER</h1>
+                <button class="nes-btn is-primary">Restart</button>
+            </div>
         `);
     } else {
         gameOverScreen = buildDom(`
-            <main>
+            <div class="gameover-screen">
                 <h1>YOU WIN!</h1>
                 <p>Your score: <span>${score}</span></p>
-                <button>Restart</button>
-            </main>
+                <button class="nes-btn is-primary">Restart</button>
+            </div>
         `);
     }
     const button = gameOverScreen.querySelector("button");
