@@ -13,7 +13,7 @@ function buildDom(htmlString) {
 function createWelcomeScreen() {
     welcomeScreen = buildDom(`
         <div class="welcome-screen">
-            <img src="./img/spiders_labyrinth.png" class="spiders-labyrinth-logo" id="life-image-1" />
+            <img src="./src/img/spiders_labyrinth.png" class="spiders-labyrinth-logo" id="life-image-1" />
             <div>
                 <button type="button" id="easy" class="nes-btn is-success">Easy</button>
                 <button type="button" id="medium" class="nes-btn is-warning">Medium</button>
@@ -44,9 +44,9 @@ function createGameScreen() {
             <header>
                 <div class="life">
                     <span class="label">Life:</span>
-                    <img src="./img/life.png" class="life-image" id="life-image-1" />
-                    <img src="./img/life.png" class="life-image" id="life-image-2" />
-                    <img src="./img/life.png" class="life-image" id="life-image-3" />
+                    <img src="./src/img/life.png" class="life-image" id="life-image-1" />
+                    <img src="./src/img/life.png" class="life-image" id="life-image-2" />
+                    <img src="./src/img/life.png" class="life-image" id="life-image-3" />
                 </div>
                 <div class="score">
                     <span class="label">Score:</span>

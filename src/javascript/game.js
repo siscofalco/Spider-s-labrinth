@@ -89,11 +89,11 @@ class Game {
 
     loadImages(){
         this.blockImg = new Image();
-        this.blockImg.src = './img/wall-block.png';
+        this.blockImg.src = './src/img/wall-block.png';
         this.trophyImg = new Image();
-        this.trophyImg.src = './img/trophy.png';
+        this.trophyImg.src = './src/img/trophy.png';
         this.floorImg = new Image();
-        this.floorImg.src = './img/floor-maze.png';
+        this.floorImg.src = './src/img/floor-maze.png';
     }
     
     startLoop(){

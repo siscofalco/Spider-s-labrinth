@@ -1,7 +1,7 @@
 const enemyImg1 = new Image();
-enemyImg1.src = './img/spider_1.png';
+enemyImg1.src = './src/img/spider_1.png';
 const enemyImg2 = new Image();
-enemyImg2.src = './img/spider_2.png';
+enemyImg2.src = './src/img/spider_2.png';
 const imgArray = [enemyImg1, enemyImg2];
 
 class Enemy{

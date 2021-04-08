@@ -1,5 +1,5 @@
 const characterImg = new Image();
-characterImg.src = './img/character.png';
+characterImg.src = './src/img/character.png';
 
 
 class Character{
