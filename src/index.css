@@ -1,5 +1,7 @@
-body {
+body, html {
     overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
 
 header{
@@ -7,6 +9,8 @@ header{
 }
 
 .welcome-screen{
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,4 +37,8 @@ header{
 
 .lost-life{
     opacity: 0.2;
+}
+
+.spiders-labyrinth-logo{
+    max-width: 90%;
 }
