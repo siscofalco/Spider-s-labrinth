@@ -1,3 +1,7 @@
+const characterImg = new Image();
+characterImg.src = './img/character.png';
+
+
 class Character{
     constructor(canvas){
         this.canvas = canvas,
@@ -32,8 +36,7 @@ class Character{
     }
 
     characterDraw(){
-        this.ctx.fillStyle = "red";
-        this.ctx.fillRect(this.x * 30, this.y * 30, 30, 30);
+        this.ctx.drawImage(characterImg, this.x * 30, this.y * 30, 30, 30);
     }
 
     setKeyListener() {

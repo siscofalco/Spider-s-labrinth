@@ -1,3 +1,9 @@
+const enemyImg1 = new Image();
+enemyImg1.src = './img/spider_1.png';
+const enemyImg2 = new Image();
+enemyImg2.src = './img/spider_2.png';
+const imgArray = [enemyImg1, enemyImg2];
+
 class Enemy{
     constructor(canvas, x, y){
         this.canvas = canvas,
@@ -5,11 +11,12 @@ class Enemy{
         this.x = x,
         this.y = y,
         this.direction = "DOWN"
+        this.count = 0;
     }
 
     enemyDraw(){
-        this.ctx.fillStyle = "green";
-        this.ctx.fillRect(this.x * 30, this.y * 30, 30, 30);
+        this.ctx.drawImage(imgArray[this.count % imgArray.length], this.x * 30, this.y * 30, 30, 30);
+        this.count++;
     }
 
     enemyPosition(map){

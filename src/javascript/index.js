@@ -12,21 +12,26 @@ function buildDom(htmlString) {
 
 function createWelcomeScreen() {
     welcomeScreen = buildDom(`
-        <main>
-            <h1>Spider's Labyrinth</h1>
-            <button id="appearance-red">Red</button>
-            <button id="appearance-blue">Blue</button>
-        </main>
+        <div class="welcome-screen">
+            <img src="./img/spiders_labyrinth.png" class="spiders-labyrinth-logo" id="life-image-1" />
+            <div>
+                <button type="button" id="easy" class="nes-btn is-success">Easy</button>
+                <button type="button" id="medium" class="nes-btn is-warning">Medium</button>
+                <button type="button" id="hard" class="nes-btn is-error">Hard</button>
+            </div>
+        </div>
     `);
 
     document.body.appendChild(welcomeScreen);
 
- 
-    const startButtons = welcomeScreen.querySelectorAll("button");
+    const gameEasy = welcomeScreen.querySelector("#easy");
+    gameEasy.addEventListener("click", startGame);
 
-    startButtons.forEach((button)=> {
-        button.addEventListener("click", startGame);
-    })
+    const gameMedium = welcomeScreen.querySelector("#medium");
+    gameMedium.addEventListener("click", startGame);
+
+    const gameHard = welcomeScreen.querySelector("#hard");
+    gameHard.addEventListener("click", startGame);   
 }
  
 function removeWelcomeScreen() {
@@ -37,17 +42,19 @@ function createGameScreen() {
     gameScreen = buildDom(`
         <main class="game container">
             <header>
-                <div class="level">
-                    <span class="label">Level:</span>
-                    <span class="value"></span>
+                <div class="life">
+                    <span class="label">Life:</span>
+                    <img src="./img/life.png" class="life-image" id="life-image-1" />
+                    <img src="./img/life.png" class="life-image" id="life-image-2" />
+                    <img src="./img/life.png" class="life-image" id="life-image-3" />
                 </div>
                 <div class="score">
                     <span class="label">Score:</span>
                     <span class="value"></span>
                 </div>
                 <div> 
-                    <button id="pause-button">Pause</button>
-                    <button id="play-button">Play</button>
+                    <button id="pause-button" class="nes-btn is-primary">Pause</button>
+                    <button id="play-button" class="nes-btn is-primary">Play</button>
                 </div>
             </header>
             <div class="canvas-container">
@@ -98,8 +105,7 @@ function startGame(event) {
     createGameScreen();
 
     game = new Game(gameScreen);
-    const appearanceId = event.target.id;
-    game.start(appearanceId);
+    game.start(event.target.id);
 }
 
 function endGame(score) {

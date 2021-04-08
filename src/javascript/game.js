@@ -8,27 +8,52 @@ class Game {
         this.ctx = null,
         this.runningGame = true,
         this.score = this.gameScreen.querySelector(".score .value"),
+        this.howManyLife = this.gameScreen.querySelector(".life .value"),
         this.scoreValue = 0,
         this.playButton = document.querySelector("#play-button"),
-        this.pauseButton = document.querySelector("#pause-button")
-        this.life = 3;
+        this.pauseButton = document.querySelector("#pause-button"),
+        this.life = 3,
+        this.blockImg = null,
+        this.trophyImg = null,
+        this.floorImg = null,
+        this.lifeImg = null
     }
 
-    start(){
+    start(difficulty){
+        this.loadImages()
         this.canvas = this.gameScreen.querySelector(".canvas-container canvas");
         this.ctx = this.canvas.getContext('2d');
-        this.canvas.width = "1000";
-        this.canvas.height = "1000";
+        this.canvas.width = "750";
+        this.canvas.height = "630";
 
         //To initialize the character
         this.character = new Character(this.canvas);
         this.character.setKeyListener();
-
+        console.log(difficulty);
+        if(difficulty === 'easy'){
         //To initialize the three enemies
-        const firstEnemy = new Enemy(this.canvas, 4, 1);
-        const secondEnemy = new Enemy(this.canvas, 1, 10);
-        const thirdEnemy = new Enemy(this.canvas, 23, 10);
-        this.enemies = [firstEnemy, secondEnemy, thirdEnemy];
+            const firstEnemy = new Enemy(this.canvas, 4, 1);
+            const secondEnemy = new Enemy(this.canvas, 1, 10);
+            const thirdEnemy = new Enemy(this.canvas, 23, 10);
+            this.enemies = [firstEnemy, secondEnemy, thirdEnemy];
+        } else if(difficulty === 'medium'){
+            const firstEnemy = new Enemy(this.canvas, 4, 1);
+            const secondEnemy = new Enemy(this.canvas, 1, 10);
+            const thirdEnemy = new Enemy(this.canvas, 23, 10);
+            const fourthEnemy = new Enemy(this.canvas, 9, 9);
+            const fifthEnemy = new Enemy(this.canvas, 15, 9);
+            this.enemies = [firstEnemy, secondEnemy, thirdEnemy, fourthEnemy, fifthEnemy];
+        } else {
+            const firstEnemy = new Enemy(this.canvas, 4, 1);
+            const secondEnemy = new Enemy(this.canvas, 1, 10);
+            const thirdEnemy = new Enemy(this.canvas, 23, 10);
+            const fourthEnemy = new Enemy(this.canvas, 9, 9);
+            const fifthEnemy = new Enemy(this.canvas, 15, 9);
+            const sixthEnemy = new Enemy(this.canvas, 15, 9);
+            const seventhEnemy = new Enemy(this.canvas, 4, 19);
+            const eigthEnemy = new Enemy(this.canvas, 20, 19);
+            this.enemies = [firstEnemy, secondEnemy, thirdEnemy, fourthEnemy, fifthEnemy, sixthEnemy, seventhEnemy, eigthEnemy];
+        }
         
         this.activatePauseButton();
         this.printLabyrinth(this.ctx);
@@ -52,15 +77,23 @@ class Game {
         mapArr.forEach((row, indexY) => {
             row.forEach((block, indexX)=>{
                 if(block === "B"){
-                    ctx.fillStyle = "black";
+                    this.ctx.drawImage(this.blockImg, indexX * 30, indexY * 30, 30, 30);
                 } else if (block === "T") {
-                    ctx.fillStyle = "gold";
+                    this.ctx.drawImage(this.trophyImg, indexX * 30, indexY * 30, 30, 30);
                 } else {
-                    ctx.fillStyle = "white";
+                    this.ctx.drawImage(this.floorImg, indexX * 30, indexY * 30, 30, 30);
                 }
-                ctx.fillRect(indexX * 30, indexY * 30, 30, 30);
             });
         });
+    }
+
+    loadImages(){
+        this.blockImg = new Image();
+        this.blockImg.src = './img/wall-block.png';
+        this.trophyImg = new Image();
+        this.trophyImg.src = './img/trophy.png';
+        this.floorImg = new Image();
+        this.floorImg.src = './img/floor-maze.png';
     }
     
     startLoop(){
@@ -81,21 +114,28 @@ class Game {
                         (this.character.x === enemy.x && this.character.y + 1 === enemy.y) ||
                         (this.character.x === enemy.x && this.character.y - 1 === enemy.y)
                     ){
+                        const lastLife = this.gameScreen.querySelector(`#life-image-${this.life}`);
+                        lastLife.classList.add("lost-life");
                         this.life -= 1;
+                        this.character.x = 12;
+                        this.character.y = 17;
+                        this.character.direction = "DOWN";
                     }
                 });
+
+
 
                 if(this.runningGame !== false){
                     const slowDownTime = () => {
                         window.requestAnimationFrame(loop);
                     };
-                    setTimeout(slowDownTime, 500);
+                    setTimeout(slowDownTime, 300);
                 }
             }
         };
         setTimeout(() => {
             window.requestAnimationFrame(loop);
-        }, 500);
+        }, 300);
     }
     
     activatePauseButton(){
@@ -128,7 +168,7 @@ const mapArr = [
     ["B"," "," "," "," "," ","B","B","B"," ","B"," "," "," ","B"," ","B","B","B"," "," "," "," "," ","B"], //4
     ["B"," ","B","B","B"," ","B"," "," "," ","B","B","B","B","B"," "," "," ","B"," ","B","B","B"," ","B"], //5
     ["B"," "," "," ","B"," ","B"," ","B","B","B"," "," "," ","B","B","B"," ","B"," ","B"," "," "," ","B"], //6
-    ["B"," ","B"," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," ","B"," ","B"], //7
+    ["B"," "," "," "," "," "," "," ","B"," "," "," "," "," "," "," ","B"," "," "," "," "," "," "," ","B"], //7
     ["B","B"," "," "," ","B","B"," ","B"," "," ","B"," ","B"," "," ","B"," ","B","B"," "," "," ","B","B"], //8
     ["B","B"," ","B"," "," "," "," ","B"," ","B","B"," ","B","B"," ","B"," "," "," "," ","B"," ","B","B"], //9
     ["B"," "," ","B"," "," ","B","B","B"," "," "," "," "," "," "," ","B","B","B"," "," ","B"," "," ","B"], //10
