@@ -15,7 +15,7 @@ The original idea consists of three different levels, same map but more difficul
 <h3>Data Structures</h3>
 
 ```
-#### index.js
+--------> index.js
 
     function buildDom(){
     }
@@ -41,7 +41,7 @@ The original idea consists of three different levels, same map but more difficul
     function endGame(){
     }
 
-game.js
+--------> game.js
 
 class Game {
     constructor{
@@ -91,7 +91,7 @@ class Game {
 
 const mapArr[],
 
-character.js
+--------> character.js
 
 class Character {
     constructor() {
@@ -112,7 +112,7 @@ class Character {
     }
 }
 
-enemy.js
+--------> enemy.js
 
 class Enemy{
     constructor() {
