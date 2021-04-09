@@ -43,93 +43,93 @@ The original idea consists of three different levels, same map but more difficul
 
 --------> game.js
 
-class Game {
-    constructor{
-        this.gameScreen = gameScreen,
-        this.mapArr 
-        this.character 
-        this.enemies
-        this.canvas 
-        this.ctx
-        this.runningGame
-        this.score
-        this.howManyLife
-        this.scoreValue
-        this.playButton
-        this.pauseButton
-        this.life
-        this.blockImg
-        this.trophyImg
-        this.floorImg
-        this.lifeImg
-        }
-        
-        start(difficulty){
-        }
-        
-        printCharacter(){
-        }
-        
-        printEnemies(){
-        }
-        
-        printLabyrinth(ctx){
-        }
-        
-        loadImages(){
-        }
-        
-        startLoop(){
-        }
-        
-        activatePauseButton(){
-        }
-        
-        printScore(){
-        }
-}
+    class Game {
+        constructor{
+            this.gameScreen = gameScreen,
+            this.mapArr 
+            this.character 
+            this.enemies
+            this.canvas 
+            this.ctx
+            this.runningGame
+            this.score
+            this.howManyLife
+            this.scoreValue
+            this.playButton
+            this.pauseButton
+            this.life
+            this.blockImg
+            this.trophyImg
+            this.floorImg
+            this.lifeImg
+            }
 
-const mapArr[],
+            start(difficulty){
+            }
+
+            printCharacter(){
+            }
+        
+            printEnemies(){
+            }
+
+            printLabyrinth(ctx){
+            }
+
+            loadImages(){
+            }
+
+            startLoop(){
+            }
+
+            activatePauseButton(){
+            }
+
+            printScore(){
+            }
+    }
+
+    const mapArr[],
 
 --------> character.js
 
-class Character {
-    constructor() {
-        this.canvas
-        this.ctx
-        this.x
-        this.y
-        this.direction
-    }
+    class Character {
+        constructor() {
+            this.canvas
+            this.ctx
+            this.x
+            this.y
+            this.direction
+        }
 
-    characterDraw() {
+        characterDraw() {
+        }
+
+        characterPosition(){
+        }
+
+        setKeyListener(){
+        }
     }
-    
-    characterPosition(){
-    }
-    
-    setKeyListener(){
-    }
-}
 
 --------> enemy.js
 
-class Enemy{
-    constructor() {
-        this.canvas
-        this.ctx
-        this.x 
-        this.y
-        this.direction
-        this.count
-    }
+    class Enemy{
+        constructor() {
+            this.canvas
+            this.ctx
+            this.x 
+            this.y
+            this.direction
+            this.count
+        }
 
-    enemyDraw() {
+        enemyDraw() {
+        }
+
+        enemyPosition(){
+        }
     }
-    
-    enemyPosition(){
-    }
-}
 ```
 ### States + States Transitions
 
