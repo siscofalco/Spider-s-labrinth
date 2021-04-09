@@ -15,36 +15,119 @@ The original idea consists of three different levels, same map but more difficul
 <h3>Data Structures</h3>
 
 ```
+#### index.js
+
+    function buildDom(){
+    }
+    
+    function createWelcomeScreen(){
+    }
+    
+    function createGameScreen(){
+    }
+    
+    function removeGameScreen(){
+    }
+    
+    function createGameOverScreen(){
+    }
+    
+    function removeGameOverScreen(){
+    }
+    
+    function startGame(){
+    }
+    
+    function endGame(){
+    }
+
+game.js
+
 class Game {
-    constructor() {
-    }
-
-    start(){
-    }
-
-    printCharacter() {
-    }
-
-    printEnemies(){
-    }
-
-    printLabyrinth() {
-    }
+    constructor{
+        this.gameScreen = gameScreen,
+        this.mapArr 
+        this.character 
+        this.enemies
+        this.canvas 
+        this.ctx
+        this.runningGame
+        this.score
+        this.howManyLife
+        this.scoreValue
+        this.playButton
+        this.pauseButton
+        this.life
+        this.blockImg
+        this.trophyImg
+        this.floorImg
+        this.lifeImg
+        }
+        
+        start(difficulty){
+        }
+        
+        printCharacter(){
+        }
+        
+        printEnemies(){
+        }
+        
+        printLabyrinth(ctx){
+        }
+        
+        loadImages(){
+        }
+        
+        startLoop(){
+        }
+        
+        activatePauseButton(){
+        }
+        
+        printScore(){
+        }
 }
+
+const mapArr[],
+
+character.js
 
 class Character {
     constructor() {
+        this.canvas
+        this.ctx
+        this.x
+        this.y
+        this.direction
     }
 
     characterDraw() {
     }
+    
+    characterPosition(){
+    }
+    
+    setKeyListener(){
+    }
 }
+
+enemy.js
 
 class Enemy{
     constructor() {
+        this.canvas
+        this.ctx
+        this.x 
+        this.y
+        this.direction
+        this.count
     }
 
     enemyDraw() {
+    }
+    
+    enemyPosition(){
     }
 }
 ```
